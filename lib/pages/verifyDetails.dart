@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:printing/printing.dart';
 import 'package:task1/resume.dart';
+import 'package:task1/widgets/customButton.dart';
 
 class VerifyDetails extends StatelessWidget {
   const VerifyDetails({super.key});
@@ -184,15 +185,12 @@ class VerifyDetails extends StatelessWidget {
               ),
 
               /* Generate Resume */
-              Container(
-                margin: const EdgeInsets.only(top: 20),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Get.toNamed("/generate-resume", arguments: argumentData);
-                  },
-                  child: const Text("Generate Resume"),
-                ),
-              ),
+              CustomButton(
+                buttonText: "Generate Resume",
+                onPressed: () {
+                  Get.toNamed("/generate-resume", arguments: argumentData);
+                },
+              )
             ],
           ),
         ),

@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:task1/controller/resume-input-controller.dart';
+import 'package:task1/widgets/customButton.dart';
 
 import '../models/educationModel.dart';
 import '../widgets/customTextField.dart';
@@ -32,34 +33,36 @@ class AddEducation extends StatelessWidget {
                     children: resumeController.education.map<Widget>(
                       (education) {
                         return Container(
-                          padding: EdgeInsets.only(bottom: 20),
+                          padding: const EdgeInsets.only(bottom: 20),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    education.educationName ?? "",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
+                              Flexible(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      education.educationName ?? "",
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    education.educationDescription ?? "",
-                                    style: TextStyle(
-                                      fontSize: 14,
+                                    Text(
+                                      education.educationDescription ?? "",
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                               // Icon(Icons.clear),
                               IconButton(
                                 onPressed: () {
                                   resumeController.education.remove(education);
                                 },
-                                icon: Icon(Icons.clear),
+                                icon: const Icon(Icons.clear),
                               )
                             ],
                           ),
@@ -84,10 +87,11 @@ class AddEducation extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
+                CustomButton(
+                  buttonText: "Add Education",
                   onPressed: () {
                     if (resumeController.educationFormKey.currentState!
                         .validate()) {
@@ -104,8 +108,7 @@ class AddEducation extends StatelessWidget {
                       resumeController.educationDescriptionController.clear();
                     }
                   },
-                  child: Text("Add Education"),
-                ),
+                )
               ],
             ),
           ),
@@ -123,7 +126,7 @@ class AddEducation extends StatelessWidget {
             },
           );
         },
-        child: Icon(Icons.arrow_forward),
+        child: const Icon(Icons.arrow_forward),
       ),
     );
   }

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:task1/controller/resume-input-controller.dart';
 import 'package:task1/models/experienceModel.dart';
 import 'package:task1/pages/addJobs.dart';
+import 'package:task1/widgets/customButton.dart';
 
 import '../widgets/customTextField.dart';
 
@@ -46,14 +47,14 @@ class AddExperience extends StatelessWidget {
                                     children: [
                                       Text(
                                         experience.experienceName ?? "",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                       Text(
                                         experience.experienceDescription ?? "",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 14,
                                         ),
                                       ),
@@ -91,10 +92,11 @@ class AddExperience extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  ElevatedButton(
+                  CustomButton(
+                    buttonText: "Add Experience",
                     onPressed: () {
                       if (resumeController.experienceFormKey.currentState!
                           .validate()) {
@@ -112,8 +114,7 @@ class AddExperience extends StatelessWidget {
                             .clear();
                       }
                     },
-                    child: Text("Add Experience"),
-                  ),
+                  )
                 ],
               ),
             ),

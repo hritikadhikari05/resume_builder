@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:task1/controller/resume-input-controller.dart';
 import 'package:task1/models/jobsModel.dart';
+import 'package:task1/widgets/customButton.dart';
 
 import '../models/experienceModel.dart';
 import '../widgets/customTextField.dart';
@@ -37,23 +38,25 @@ class AddJobs extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    job.jobsName ?? "",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
+                              Flexible(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      job.jobsName ?? "",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    job.jobsDescription ?? "",
-                                    style: TextStyle(
-                                      fontSize: 14,
+                                    Text(
+                                      job.jobsDescription ?? "",
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                               // Icon(Icons.clear),
                               IconButton(
@@ -87,7 +90,8 @@ class AddJobs extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
+                CustomButton(
+                  buttonText: "Add Jobs",
                   onPressed: () {
                     if (resumeController.jobsFormKey.currentState!.validate()) {
                       resumeController.jobsFormKey.currentState!.save();
@@ -102,7 +106,6 @@ class AddJobs extends StatelessWidget {
                       resumeController.jobsDescriptionController.clear();
                     }
                   },
-                  child: Text("Add Jobs"),
                 ),
               ],
             ),

@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:task1/controller/resume-input-controller.dart';
 import 'package:task1/models/generalInfoModel.dart';
+import 'package:task1/widgets/customButton.dart';
 import 'package:task1/widgets/customTextField.dart';
 
 import 'addExperience.dart';
@@ -20,13 +21,14 @@ class ResumeInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Resume Builder"),
+        title: Text("General Info"),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Form(
                   key: resumeController.generalFormKey,
@@ -58,9 +60,9 @@ class ResumeInput extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
+                CustomButton(
+                  buttonText: "Add General Info",
                   onPressed: () {
-                    // Get.toNamed("/resume-input/add-experience");
                     if (resumeController.generalFormKey.currentState!
                         .validate()) {
                       Get.toNamed(
@@ -83,8 +85,7 @@ class ResumeInput extends StatelessWidget {
                       resumeController.roleController.clear();
                     }
                   },
-                  child: Text("Add General Info"),
-                ),
+                )
               ],
             ),
           ),
