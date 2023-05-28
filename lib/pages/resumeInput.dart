@@ -75,6 +75,12 @@ class ResumeInput extends StatelessWidget {
                           )
                         },
                       );
+                      // resumeController.generalFormKey.currentState!.reset();
+                      resumeController.nameController.clear();
+                      resumeController.emailController.clear();
+                      resumeController.phoneController.clear();
+                      resumeController.addressController.clear();
+                      resumeController.roleController.clear();
                     }
                   },
                   child: Text("Add General Info"),
