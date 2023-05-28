@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
-import 'package:task1/certificates.dart';
 import 'package:task1/resume.dart';
 import 'package:task1/pages/resumeInput.dart';
 import 'package:task1/routes/routes.dart';
