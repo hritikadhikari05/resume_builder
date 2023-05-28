@@ -7,6 +7,8 @@ class ResumeController extends GetxController {
   TextEditingController phoneController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController nameController = TextEditingController();
+  TextEditingController roleController = TextEditingController();
+
   TextEditingController experienceController = TextEditingController();
   TextEditingController experienceDescriptionController =
       TextEditingController();
@@ -59,6 +61,7 @@ class ResumeController extends GetxController {
     educationDescriptionController.dispose();
     jobsController.dispose();
     jobsDescriptionController.dispose();
+    roleController.dispose();
 
     super.onClose();
   }

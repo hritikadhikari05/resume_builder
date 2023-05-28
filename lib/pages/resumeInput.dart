@@ -23,57 +23,64 @@ class ResumeInput extends StatelessWidget {
         title: Text("Resume Builder"),
       ),
       body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            children: [
-              Form(
-                key: resumeController.generalFormKey,
-                child: Column(
-                  children: [
-                    CustomTextFormField(
-                      labelText: "Name",
-                      controller: resumeController.nameController,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Email",
-                      controller: resumeController.emailController,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Phone Number",
-                      controller: resumeController.phoneController,
-                    ),
-                    CustomTextFormField(
-                      labelText: "Address",
-                      controller: resumeController.addressController,
-                    ),
-                  ],
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Form(
+                  key: resumeController.generalFormKey,
+                  child: Column(
+                    children: [
+                      CustomTextFormField(
+                        labelText: "Name",
+                        controller: resumeController.nameController,
+                      ),
+                      CustomTextFormField(
+                        labelText: "Email",
+                        controller: resumeController.emailController,
+                      ),
+                      CustomTextFormField(
+                        labelText: "Phone Number",
+                        controller: resumeController.phoneController,
+                      ),
+                      CustomTextFormField(
+                        labelText: "Address",
+                        controller: resumeController.addressController,
+                      ),
+                      CustomTextFormField(
+                        labelText: "Role",
+                        controller: resumeController.roleController,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  // Get.toNamed("/resume-input/add-experience");
-                  if (resumeController.generalFormKey.currentState!
-                      .validate()) {
-                    Get.toNamed(
-                      "/resume-input/add-experience",
-                      arguments: {
-                        "generalDetails": GeneralInfoModel(
-                          name: resumeController.nameController.text,
-                          email: resumeController.emailController.text,
-                          phoneNo: resumeController.phoneController.text,
-                          address: resumeController.addressController.text,
-                        )
-                      },
-                    );
-                  }
-                },
-                child: Text("Add General Info"),
-              ),
-            ],
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Get.toNamed("/resume-input/add-experience");
+                    if (resumeController.generalFormKey.currentState!
+                        .validate()) {
+                      Get.toNamed(
+                        "/resume-input/add-experience",
+                        arguments: {
+                          "generalDetails": GeneralInfoModel(
+                            name: resumeController.nameController.text,
+                            email: resumeController.emailController.text,
+                            phoneNo: resumeController.phoneController.text,
+                            address: resumeController.addressController.text,
+                            role: resumeController.roleController.text,
+                          )
+                        },
+                      );
+                    }
+                  },
+                  child: Text("Add General Info"),
+                ),
+              ],
+            ),
           ),
         ),
       ),

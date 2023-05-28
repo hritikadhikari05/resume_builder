@@ -11,8 +11,6 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
-import '../data.dart';
-
 const PdfColor green = PdfColor.fromInt(0xff9ce5d0);
 const PdfColor lightGreen = PdfColor.fromInt(0xffcdf1e7);
 const sep = 120.0;
@@ -58,7 +56,7 @@ Future<Uint8List> generateResume(data) async {
 
                         //Role
                         pw.Text(
-                          'Computer Engineer',
+                          '${data['generalInfo'].role}',
                           textScaleFactor: 1.2,
                           style: pw.Theme.of(context).defaultTextStyle.copyWith(
                               fontWeight: pw.FontWeight.bold, color: green),
@@ -78,9 +76,9 @@ Future<Uint8List> generateResume(data) async {
                             pw.Column(
                               crossAxisAlignment: pw.CrossAxisAlignment.start,
                               children: <pw.Widget>[
-                                pw.Text('${data['generalInfo'].phoneNo}}'),
+                                pw.Text('${data['generalInfo'].phoneNo}'),
                                 pw.Text(
-                                  '${data['generalInfo'].email}}',
+                                  '${data['generalInfo'].email}',
                                 ),
                               ],
                             ),

@@ -6,7 +6,6 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import 'package:task1/certificates.dart';
-import 'package:task1/data.dart';
 import 'package:task1/resume.dart';
 import 'package:task1/pages/resumeInput.dart';
 import 'package:task1/routes/routes.dart';
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       // home: ResumeInput(),
       getPages: appRoutes(),
