@@ -148,18 +148,6 @@ Future<Uint8List> generateResume(data) async {
                             child: pw.Image(profileImage),
                           ),
                         ),
-                        // pw.Column(children: <pw.Widget>[
-                        //   _Percent(size: 60, value: .7, title: pw.Text('Word')),
-                        //   _Percent(
-                        //       size: 60, value: .4, title: pw.Text('Excel')),
-                        // ]),
-                        // pw.BarcodeWidget(
-                        //   data: 'Parnella Charlesbois',
-                        //   width: 60,
-                        //   height: 60,
-                        //   barcode: pw.Barcode.qrCode(),
-                        //   drawText: false,
-                        // ),
                       ],
                     ),
                   ),
@@ -211,62 +199,6 @@ Future<pw.PageTheme> _myPageTheme(PdfPageFormat format) async {
     },
   );
 }
-
-// class _Block extends pw.StatelessWidget {
-//   _Block({
-//     required this.title,
-//     this.icon,
-//   });
-
-//   final String title;
-
-//   final pw.IconData? icon;
-
-//   @override
-//   pw.Widget build(pw.Context context) {
-//     return pw.Column(
-//       crossAxisAlignment: pw.CrossAxisAlignment.start,
-//       children: <pw.Widget>[
-//         pw.Row(
-//           crossAxisAlignment: pw.CrossAxisAlignment.start,
-//           children: <pw.Widget>[
-//             pw.Container(
-//               width: 6,
-//               height: 6,
-//               margin: const pw.EdgeInsets.only(top: 5.5, left: 2, right: 5),
-//               decoration: const pw.BoxDecoration(
-//                 color: green,
-//                 shape: pw.BoxShape.circle,
-//               ),
-//             ),
-//             pw.Text(title,
-//                 style: pw.Theme.of(context)
-//                     .defaultTextStyle
-//                     .copyWith(fontWeight: pw.FontWeight.bold)),
-//             pw.Spacer(),
-//             if (icon != null) pw.Icon(icon!, color: lightGreen, size: 18),
-//           ],
-//         ),
-//         pw.Container(
-//           decoration: const pw.BoxDecoration(
-//             border: pw.Border(
-//               left: pw.BorderSide(color: green, width: 2),
-//             ),
-//           ),
-//           padding: const pw.EdgeInsets.only(left: 10, top: 5, bottom: 5),
-//           margin: const pw.EdgeInsets.only(left: 5),
-//           child: pw.Column(
-//             crossAxisAlignment: pw.CrossAxisAlignment.start,
-//             children: <pw.Widget>[
-//               //Description
-//               pw.Lorem(length: 5),
-//             ],
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-// }
 
 pw.Widget _Block(title, description, icon, context) {
   return pw.Column(
@@ -334,76 +266,3 @@ class _Category extends pw.StatelessWidget {
     );
   }
 }
-
-// class _Percent extends pw.StatelessWidget {
-//   _Percent({
-//     required this.size,
-//     required this.value,
-//     required this.title,
-//   });
-
-//   final double size;
-
-//   final double value;
-
-//   final pw.Widget title;
-
-//   static const fontSize = 1.2;
-
-//   PdfColor get color => green;
-
-//   static const backgroundColor = PdfColors.grey300;
-
-//   static const strokeWidth = 5.0;
-
-//   @override
-//   pw.Widget build(pw.Context context) {
-//     final widgets = <pw.Widget>[
-//       pw.Container(
-//         width: size,
-//         height: size,
-//         child: pw.Stack(
-//           alignment: pw.Alignment.center,
-//           fit: pw.StackFit.expand,
-//           children: <pw.Widget>[
-//             pw.Center(
-//               child: pw.Text(
-//                 '${(value * 100).round().toInt()}%',
-//                 textScaleFactor: fontSize,
-//               ),
-//             ),
-//             pw.CircularProgressIndicator(
-//               value: value,
-//               backgroundColor: backgroundColor,
-//               color: color,
-//               strokeWidth: strokeWidth,
-//             ),
-//           ],
-//         ),
-//       )
-//     ];
-
-//     widgets.add(title);
-
-//     return pw.Column(children: widgets);
-//   }
-// }
-
-// class _UrlText extends pw.StatelessWidget {
-//   _UrlText(this.text, this.url);
-
-//   final String text;
-//   final String url;
-
-//   @override
-//   pw.Widget build(pw.Context context) {
-//     return pw.UrlLink(
-//       destination: url,
-//       child: pw.Text(text,
-//           style: const pw.TextStyle(
-//             decoration: pw.TextDecoration.underline,
-//             color: PdfColors.blue,
-//           )),
-//     );
-//   }
-// }
